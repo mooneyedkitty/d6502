@@ -38,6 +38,7 @@ func main() {
 	var fileName string
 	var startAddress int
 	var fileOffset int
+	var rangeFile string
 
 	fmt.Println("6502 Disassembler (d6502)")
 	fmt.Println("(c) 2024 Rob Snyder <rob@mooneyedkitty.com>")
@@ -46,6 +47,7 @@ func main() {
 	flag.StringVar(&fileName, "f", "", "File to disassemble")
 	flag.IntVar(&startAddress, "s", 0, "Starting address (defaults to 0)")
 	flag.IntVar(&fileOffset, "o", 0, "Offset in the file to start at (defaults to 0)")
+	flag.StringVar(&rangeFile, "r", "", "Range file name")
 
 	flag.Parse()
 
@@ -58,9 +60,10 @@ func main() {
 	}
 
 	cpu6502.Disassemble(&cpu6502.DisassembleOptions{
-		FileName:     fileName,
-		StartAddress: startAddress,
-		FileOffset:   fileOffset,
+		FileName:      fileName,
+		StartAddress:  startAddress,
+		FileOffset:    fileOffset,
+		RangeFileName: rangeFile,
 	})
 
 }
