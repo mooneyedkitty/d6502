@@ -61,8 +61,8 @@ func main() {
 
 	cpu6502.Disassemble(&cpu6502.DisassembleOptions{
 		FileName:      fileName,
-		StartAddress:  startAddress,
-		FileOffset:    fileOffset,
+		StartAddress:  uint16(startAddress),
+		FileOffset:    uint16(fileOffset),
 		RangeFileName: rangeFile,
 	})
 
